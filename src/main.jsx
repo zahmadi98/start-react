@@ -1,10 +1,9 @@
 import React from 'react'
-import { createRoot } from 'react-dom/client'
+import ReactDOM from "react-dom/client"; 
 import './index.css'
 import App from './App.jsx'
 
-const container = document.getElementById('root')
-const root = createRoot(container)  // ✅ استفاده از createRoot که import کردی
+const container = document.getElementById('root');
+const root = ReactDOM.createRoot(container);
+root.render(<App />);
 
-// رندر App بدون JSX
-root.render(React.createElement(App))

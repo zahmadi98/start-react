@@ -3,6 +3,11 @@ import reactLogo from './assets/react.svg';
 import { useState } from 'react'
 import viteLogo from '/vite.svg';
 import './App.css';
+
+const reactDescriptions = ['Fundamental', 'Crucial', 'Core'];
+function genRandomInt(max) {
+  return Math.floor(Math.random() * (max + 1));
+}
 const content = [
 [
   "a",
@@ -29,13 +34,26 @@ const content = [
   "8"
 ]
 ];
+function Header() {
+  return (
+    <header>
+      <img src="src/assets/react.svg" alt="Stylized" />
+     <h1>React Esentials</h1>
+     <p>
+      {reactDescriptions[genRandomInt(2)]} React concepts
+     </p>
+    </header>
+  );
+}
 
-export default function App() {
+function App() {
+  
   const [activeContentIndex, setActiveContentIndex] = useState(0);
   return(
     <div id='tabs'>
-      <menu>
-        <button 
+      <Header />
+      <menu id='menu'>
+        <button id='btn'
         className={activeContentIndex === 0 ? "active" : ""}
         onClick={() => setActiveContentIndex(0)}
         >
@@ -53,12 +71,6 @@ export default function App() {
         >
         Button 3
         </button>
-         <button 
-        className={activeContentIndex === 3 ? "active" : ""}
-        onClick={() => setActiveContentIndex(3)}
-        >
-        Button 4
-        </button>
       </menu>
       <div id='tab_content'>
         <ul>
@@ -70,3 +82,5 @@ export default function App() {
     </div>
   )
 }
+
+export default App;
