@@ -1,7 +1,7 @@
 import React from 'react';
 import reactLogo from './assets/react.svg';
 import { useState } from 'react'
-import viteLogo from '/vite.svg';
+import reactImg from './assets/react.svg';
 import './App.css';
 
 const reactDescriptions = ['Fundamental', 'Crucial', 'Core'];
@@ -37,8 +37,8 @@ const content = [
 function Header() {
   return (
     <header>
-      <img src="src/assets/react.svg" alt="Stylized" />
-     <h1>React Esentials</h1>
+      <img src={reactImg} alt="Stylized" />
+     <h2>React Esentials</h2>
      <p>
       {reactDescriptions[genRandomInt(2)]} React concepts
      </p>
@@ -46,12 +46,49 @@ function Header() {
   );
 }
 
+function CorConcept(props){
+  return(
+    <li>
+      <img src={props.image} alt={props.title}/>
+      <h3>{props.title}</h3>
+      <p>{props.descripyion}</p>
+    </li>
+  )
+}
 function App() {
   
   const [activeContentIndex, setActiveContentIndex] = useState(0);
+
   return(
     <div id='tabs'>
       <Header />
+      <main>
+        <section id='core_concepts'>
+          <h2>Core Concepts</h2>
+          <ul id='test'>
+            <CorConcept 
+            title="Components"
+            descripyion="The core UI building block."
+            image={reactImg}
+            />
+            <CorConcept 
+            title="Components"
+            descripyion="The core UI building block."
+            image={reactImg}
+            />
+            <CorConcept 
+            title="Components"
+            descripyion="The core UI building block."
+            image={reactImg}
+            />
+            <CorConcept 
+            title="Components"
+            descripyion="The core UI building block."
+            image={reactImg}
+            />
+          </ul>
+        </section>
+
       <menu id='menu'>
         <button id='btn'
         className={activeContentIndex === 0 ? "active" : ""}
@@ -79,6 +116,7 @@ function App() {
           ))}
           </ul>
       </div>
+      </main>
     </div>
   )
 }
