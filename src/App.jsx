@@ -78,7 +78,7 @@ function App() {
       <div id='tab_content'>
         <ul>
           {content[activeContentIndex].map((item) => (
-            <li key={item}>{item}</li>
+            <li className='cases' key={item}>{item}</li>
           ))}
           </ul>
       </div>

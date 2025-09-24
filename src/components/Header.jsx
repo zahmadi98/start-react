@@ -1,4 +1,5 @@
 import reactImg from '../assets/react-icons.svg';
+import '../App.css';
 const reactDescriptions = ['Fundamental', 'Crucial', 'Core'];
 
 function genRandomInt(max) {
@@ -9,9 +10,9 @@ export default function Header() {
   return (
     <header>
       <img className="logo" src={reactImg} alt="Stylized" />
-     <h2>React Esentials</h2>
-     <p>
-      {reactDescriptions[genRandomInt(2)]} React concepts
+     <h1>React Esentials</h1>
+     <p className='des'>
+      {reactDescriptions[genRandomInt(2)]} React concepts you will need for almost any app you are going yo build!
      </p>
     </header>
   );
