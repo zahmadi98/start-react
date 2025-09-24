@@ -1,13 +1,12 @@
 import React from 'react';
 import reactLogo from './assets/react.svg';
 import { useState } from 'react'
-import reactImg from './assets/react.svg';
 import './App.css';
+import CorConcept from './components/CoreConcept';
+import Header from './components/Header';
+import { CORE_CONCEPTS } from './data.js'
 
-const reactDescriptions = ['Fundamental', 'Crucial', 'Core'];
-function genRandomInt(max) {
-  return Math.floor(Math.random() * (max + 1));
-}
+
 const content = [
 [
   "a",
@@ -34,27 +33,6 @@ const content = [
   "8"
 ]
 ];
-function Header() {
-  return (
-    <header>
-      <img src={reactImg} alt="Stylized" />
-     <h2>React Esentials</h2>
-     <p>
-      {reactDescriptions[genRandomInt(2)]} React concepts
-     </p>
-    </header>
-  );
-}
-
-function CorConcept(props){
-  return(
-    <li>
-      <img src={props.image} alt={props.title}/>
-      <h3>{props.title}</h3>
-      <p>{props.descripyion}</p>
-    </li>
-  )
-}
 function App() {
   
   const [activeContentIndex, setActiveContentIndex] = useState(0);
@@ -67,25 +45,13 @@ function App() {
           <h2>Core Concepts</h2>
           <ul id='test'>
             <CorConcept 
-            title="Components"
-            descripyion="The core UI building block."
-            image={reactImg}
+            title={CORE_CONCEPTS[0].title}
+            description={CORE_CONCEPTS[0].description}
+            image={CORE_CONCEPTS[0].image}
             />
-            <CorConcept 
-            title="Components"
-            descripyion="The core UI building block."
-            image={reactImg}
-            />
-            <CorConcept 
-            title="Components"
-            descripyion="The core UI building block."
-            image={reactImg}
-            />
-            <CorConcept 
-            title="Components"
-            descripyion="The core UI building block."
-            image={reactImg}
-            />
+            <CorConcept {...CORE_CONCEPTS[1]} />
+            <CorConcept {...CORE_CONCEPTS[2]} />
+            <CorConcept {...CORE_CONCEPTS[3]} />
           </ul>
         </section>
 
